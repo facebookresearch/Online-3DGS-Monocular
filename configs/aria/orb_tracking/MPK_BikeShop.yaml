@@ -1,0 +1,42 @@
+inherit_from: "configs/aria/orb_tracking/aria_base.yaml"
+
+
+Dataset:
+  name: "Paper-bike-shop"
+  type: "aria"
+  data_source: "orb"
+  dataset_path: "/mnt/SATA_DATA_1/Songyin/Meta/Data/Aria_Data_cleaned/Bike-Shop"
+  num_threads: 2
+  begin_cutoff: 100
+  end_cutoff: 0
+  vignette: True
+  use_vignette_type: "post-render"
+  Calibration:
+    fx: 400
+    fy: 400
+    cx: 400
+    cy: 400
+    width: 800
+    height: 800
+    near: 0.01
+    far: 1000
+
+Testset: # testset for evaluation
+  name: "Paper-bike-shop"
+  type: "aria"
+  data_source: "orb"
+  dataset_path: "/mnt/SATA_DATA_1/Songyin/Meta/Data/Aria_Data_cleaned/Bike-Shop"
+  num_threads: 2
+  begin_cutoff: 100
+  end_cutoff: 0
+  vignette: True
+  use_vignette_type: "post-render"
+  Calibration:
+    fx: 400
+    fy: 400
+    cx: 400
+    cy: 400
+    width: 800
+    height: 800
+    near: 0.01
+    far: 1000

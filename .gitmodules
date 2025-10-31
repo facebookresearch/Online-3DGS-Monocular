@@ -1,0 +1,3 @@
+[submodule "DepthCov-Modified"]
+	path = DepthCov-Modified
+	url = git@github.com:Poiw/DepthCov-Modified.git

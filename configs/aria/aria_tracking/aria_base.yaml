@@ -1,0 +1,138 @@
+Results:
+  save_dir: "./Logs"
+  save_gt: False
+  save_exr: False
+  save_mesh: False
+
+Mapper:
+  device: "cuda:0"
+  active_window_size: 1
+  coarse_active_window_size: 1
+  coarse_level_interval: 5
+  coarse_pool_size: 10
+  add_gaussians_interval: 0
+  prune_interval: 100
+  initialization_frames: 8
+  group_max_gaussian_frames: 100000000
+
+  interactive_visualization: none
+  save_model_interval: 100000000
+
+  use_multi_reso: True
+  use_dataset: True
+  pin_kf_gpu: True
+
+  optimization_iters: 25
+  initialization_iters: 20
+
+  FrameChecker:
+    use_frame_checker: True
+    rot_speed_threshold: 10
+    pts_num_threshold: 10
+
+  KFGraph:
+    kf_selection_method: "overlap_mixed"
+    kf_overlap_ratio: 0.9
+    kf_interval: 5
+    global_window_size: 4
+    get_next_camera_method: err_idx_diff
+    pos_clamp: 1
+    pos_sigma: 10
+    cov_clamp: 0.75
+    cov_eps: 0.00001
+    err_sigma: 50
+    ris_size: 10
+    idx_diff_sigma: 0.001
+
+
+  CameraOptimizer:
+    use_camera_opt: True
+    max_num: 8192
+    use_hierarchy: False
+    lr: 0.00001
+    weight_decay: 0.00000
+    pose_refine_init_steps: 0
+    pose_opt_steps: 8
+    device: "cuda:0"
+
+  post_refinement:
+    max_steps: 1000
+    opt_cam: False
+    means_lr_init: 0.00004
+    means_lr_final: 0.0000004
+    scales_lr_init: 0.003
+    scales_lr_final: 0.001
+    quats_lr: 0.001
+    opacities_lr: 0.05
+    sh_lr: 0.0025
+
+Loss:
+  device: "cuda:0"
+
+  color_loss_type: l1
+
+  lambda_ssim: 0.2
+  use_tonemap: False
+  mu: 8
+
+  lambda_g: 1.0
+  g_loss_type: "min_constraint" # "iso" or "min_constraint"
+  min_scale_ratio: 10
+
+  # for 2dgs
+  # lambda_depth: 0.01
+  # lambda_normal: 0.01
+  # lambda_distortion: 0.01
+
+  # for 3dgs
+  lambda_depth: 0.0
+  lambda_normal: 0.0
+  lambda_distortion: 0.0
+  lambda_normal_reg: 0.0
+  normal_reg_threshold: 0.02
+
+Model:
+
+  gaussian_type: 3dgs
+
+  sh_degree: 0
+  use_anti_aliasing: True
+  render_mode: "RGB+ED"
+  device: "cuda:0"
+  radius_clip: 0
+  init_scale_size: -6
+
+  densification_mode: adaptive_semi-dense_extra-pts
+  init_scale_offset: 2.0
+  extra_pts_num: 500
+  err_threshold: 0.08
+  semi_dense_err_threshold: 0.02
+
+  camera_scale_rescalar: 2.0
+
+  opacity_prune_threshold: 0.01
+  scene_scale: 0.4
+  gaussian_pos_schedule_steps: 0
+  init_gaussian_config:
+    means_lr_init: 0.00004
+    means_lr_final: 0.00004
+    scales_lr_init: 0.003
+    scales_lr_final: 0.003
+    quats_lr_init: 0.001
+    quats_lr_final: 0.001
+    opacities_lr: 0.05
+    sh_lr: 0.0025
+
+  DepthCovEstimator:
+    level: -1
+    model_path: ./DepthCov-Modified/models/scannet.ckpt
+    std_valid_threshold: 0.06
+
+HashBlock:
+  use_hash: True
+  start_scale: 20
+  hash_size: 512
+  hash_level: 8
+  use_color_hash: False
+  color_hash_size: 2
+  remove_conflict: True
