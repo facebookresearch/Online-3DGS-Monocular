@@ -5,7 +5,6 @@
 # LICENSE file in the root directory of this source tree.
 
 import numpy as np
-
 from utils_new.camera_utils import in_frustum_region
 
 

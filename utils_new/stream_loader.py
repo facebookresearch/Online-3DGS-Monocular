@@ -12,10 +12,8 @@ from os.path import join as pjoin
 
 import numpy as np
 import torch
-
 from PIL import Image
 from utils_new.camera_utils import Camera
-
 from utils_new.logging_utils import Log
 from utils_new.tool_utils import focal2fov
 

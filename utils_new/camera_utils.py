@@ -316,12 +316,12 @@ class Camera(nn.Module):
         self.width = image_width
         self.opt_steps = 0
 
-        assert (
-            self.height % (2 ** (self.MAX_LEVEL - 1)) == 0
-        ), f"height {self.height} is not divisible by 2^{self.MAX_LEVEL-1}"
-        assert (
-            self.width % (2 ** (self.MAX_LEVEL - 1)) == 0
-        ), f"width {self.width} is not divisible by 2^{self.MAX_LEVEL-1}"
+        assert self.height % (2 ** (self.MAX_LEVEL - 1)) == 0, (
+            f"height {self.height} is not divisible by 2^{self.MAX_LEVEL - 1}"
+        )
+        assert self.width % (2 ** (self.MAX_LEVEL - 1)) == 0, (
+            f"width {self.width} is not divisible by 2^{self.MAX_LEVEL - 1}"
+        )
 
         self.near = near
         self.far = far

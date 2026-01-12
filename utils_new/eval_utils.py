@@ -9,16 +9,12 @@ import os
 from os.path import join as pjoin
 
 import numpy as np
-
 import open3d as o3d
-
 import torch
 from torchmetrics.image import PeakSignalNoiseRatio, StructuralSimilarityIndexMeasure
-
 from torchmetrics.image.lpip import LearnedPerceptualImagePatchSimilarity
 from tqdm import tqdm
 from utils_new.dataset import load_dataset
-
 from utils_new.logging_utils import Log
 from utils_new.tool_utils import (
     interpolate_pose,
@@ -247,7 +243,7 @@ def eval_gaussians(gaussians, optimization_infos, configs):
             }
 
             Log(
-                f'mean psnr: {results["mean"]["psnr"]}, ssim: {results["mean"]["ssim"]}, lpips: {results["mean"]["lpips"]}',
+                f"mean psnr: {results['mean']['psnr']}, ssim: {results['mean']['ssim']}, lpips: {results['mean']['lpips']}",
                 tag="Eval",
             )
 

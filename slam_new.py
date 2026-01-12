@@ -5,7 +5,6 @@
 # LICENSE file in the root directory of this source tree.
 
 import json
-
 import os
 import sys
 from argparse import ArgumentParser
@@ -15,10 +14,8 @@ from os.path import join as pjoin
 import torch
 import torch.multiprocessing as mp
 import yaml
-
 from utils_new.eval_utils import eval_gaussians
 from utils_new.logging_utils import Log
-
 from utils_new.scene_mapper import SceneMapper
 from utils_new.tool_utils import load_config, mkdir_p
 

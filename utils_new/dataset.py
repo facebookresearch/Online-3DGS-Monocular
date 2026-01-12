@@ -12,7 +12,6 @@ import cv2
 import numpy as np
 import torch
 from PIL import Image
-
 from torch.utils.data import DataLoader
 from utils_new.camera_utils import Camera
 from utils_new.logging_utils import Log

@@ -9,13 +9,11 @@ import time
 from os.path import join as pjoin
 
 import numpy as np
-
 import torch
 import torch.multiprocessing as mp
 from torchvision.transforms import v2
 from tqdm import tqdm
 from utils_new.dataset import load_dataset
-
 from utils_new.gaussian_models import GaussianModel
 
 try:
