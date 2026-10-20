@@ -170,14 +170,14 @@ def gammaCorrection(img, gamma=2.2):
 
     try:
         return np.power(np.clip(img, 0.0, 1.0), invGamma)
-    except:
+    except Exception:
         return torch.pow(torch.clamp(img, 0.0, 1.0), invGamma)
 
 
 def invGammaCorrection(img, gamma=2.2):
     try:
         return np.power(img, gamma)
-    except:
+    except Exception:
         return torch.pow(img, gamma)
 
 

@@ -18,7 +18,7 @@ from utils_new.gaussian_models import GaussianModel
 
 try:
     from utils_new.stream_loader import load_streamer
-except:
+except Exception:
     print("Warning: Stream loader not found. Please check the dependency.")
 # from torchmetrics import StructuralSimilarityIndexMeasure  # Removed unused import
 
